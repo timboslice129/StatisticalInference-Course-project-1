@@ -1,0 +1,31 @@
+---
+title: "StatisticalInferenceCourseProject"
+author: "Tim English"
+date: "24 August 2019"
+output: html_document
+---
+
+
+## Obtaining sample means of the exponential distribution via simulation.
+
+# Synopsis
+We are going to take 40 random samples from the exponential distribution and repeat this process 1000 times. We will then calculate the sample mean and compare it to the theoretical mean. Furthermore we will attempt to show the means of our samples are normally distributed. 
+
+First we define our variables:
+```{r}
+n <- 40
+b <- 1000
+lambda <- 0.2
+set.seed(500)
+```
+Note that we set the seed so that we can reproduce our results for the purposes of this analysis. 
+
+n refers to the number of exponentials per sampling while b is the number of simulations we will perform. Our theoretical mean is 1/lambda or 5 and our theoretical standard deviation is also 1/lambda or 5.
+Therefore our theoretical variance is 25. 
+
+```{r}
+samples <- matrix(rexp(n * b,lambda),b,n)
+```
+The above code performs 40 random simulations of the exponential distribuiton and repeats the process 1000 times. The results are stored in an array with 1000 rows and 40 columns.
+
+
